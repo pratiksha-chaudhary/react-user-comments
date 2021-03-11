@@ -1,4 +1,5 @@
 import React from "react";
+import UserComments from "./UserComments";
 
 function Comments() {
   return (
@@ -7,7 +8,7 @@ function Comments() {
         <div className="comments-header">Comments</div>
         <div className="create-comment">Create comment</div>
       </div>
-      <div className="user-comments"></div>
+      <UserComments />
     </div>
   );
 }

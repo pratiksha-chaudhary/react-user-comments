@@ -85,10 +85,6 @@ a.active {
   margin-top: 7vh;
 }
 
-.user-comments {
-  height: 500px;
-}
-
 .create-comment {
   border: 1.5px solid black;
   border-radius: 7%;
