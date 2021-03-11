@@ -14,8 +14,8 @@ function Header() {
           <a className="active" href="#map">
             Comments
           </a>
-          <a className="admin" href="#map">
-            Admin
+          <a href="#map">
+            <span className="admin">Admin</span>
           </a>
           <div className="username username-circle">
             <span href="#map">L</span>
