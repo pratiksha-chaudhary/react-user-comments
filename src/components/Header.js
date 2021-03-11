@@ -9,9 +9,11 @@ function Header() {
           <div className="header-item">Map</div>
           <div className="header-item">Tasks</div>
           <div className="header-item">Dashboard</div>
-          <div className="header-item">Comments</div>
+          <div className="active">Comments</div>
           <div className="header-item">Admin</div>
-          <div className="header-item">L</div>
+          <div className="header-item">
+            <div className="header-username">L</div>
+          </div>
         </div>
       </div>
     </div>
