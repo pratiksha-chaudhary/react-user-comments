@@ -4,15 +4,21 @@ function Header() {
   return (
     <div className="App-header">
       <div className="flex-container">
-        <div className="header-logo">LiveEO</div>
-        <div className="header-items">
-          <div className="header-item">Map</div>
-          <div className="header-item">Tasks</div>
-          <div className="header-item">Dashboard</div>
-          <div className="active">Comments</div>
-          <div className="header-item">Admin</div>
-          <div className="header-item">
-            <div className="header-username">L</div>
+        <div className="header-item-logo">
+          <div href="#home">LiveEO</div>
+        </div>
+        <div className="header-item">
+          <a href="#map">Map</a>
+          <a href="#map">Tasks</a>
+          <a href="#map">Dashboard</a>
+          <a className="active" href="#map">
+            Comments
+          </a>
+          <a className="admin" href="#map">
+            Admin
+          </a>
+          <div className="username username-circle">
+            <span href="#map">L</span>
           </div>
         </div>
       </div>

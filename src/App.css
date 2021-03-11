@@ -1,49 +1,65 @@
 .App-header {
   background-color: #282c34;
-  font-size: 13px;
-  height: 8vh;
+  font-size: 12px;
+  height: 7vh;
   color: white;
 }
 
 .flex-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 8vh;
-}
-.header-logo {
-  /* align-items: stretch; */
-}
-.header-items {
-  display: flex;
-  justify-content: space-between;
-  min-width: 40%;
-  align-items: stretch;
-  line-height: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
 }
 
 .header-item {
-  font-weight: bold;
-  min-width: 30px;
-  height: 100%;
-  align-items: center;
-  text-align: center;
+  float: right;
+  display: flex;
+  flex-direction: row;
+}
+
+.header-item-logo {
+  float: left;
   display: block;
   color: white;
-}
-
-.header-username {
-  line-height: 100%;
-  border-radius: 50%;
-  color: black;
   text-align: center;
-  background: white;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-.active {
+.header-item a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+a.active {
   background-color: white;
   color: black;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+}
+
+.username {
+  background-color: white;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  line-height: 1;
+  margin: 5px;
+}
+
+.username-circle span {
+  display: block;
+  color: black;
+  padding: 50%;
+  margin: -3em -50% -3em;
+  position: relative;
+  top: 1.5em;
+  border: 1em solid transparent;
+  white-space: nowrap;
 }
