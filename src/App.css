@@ -70,3 +70,34 @@ a.active {
   border-radius: 8%;
   padding: 7px 18px;
 }
+
+.comments-app {
+  margin: 0px auto;
+  width: 65%;
+}
+
+.comments-app-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 7vh;
+}
+
+.user-comments {
+  height: 500px;
+}
+
+.create-comment {
+  border: 1.5px solid black;
+  border-radius: 7%;
+  padding: 10px 12px;
+  background-color: black;
+  color: white;
+}
+
+.comments-header {
+  font-size: 18px;
+  padding: 10px 12px;
+}
