@@ -1,16 +1,16 @@
 import React from "react";
-import UserComments from "./UserComments";
+import CommentSection from "./CommentSection";
 
-function Comments() {
+function CommentsPage() {
   return (
     <div className="comments-app">
       <div className="comments-app-header">
         <div className="comments-header">Comments</div>
         <div className="create-comment">Create comment</div>
       </div>
-      <UserComments />
+      <CommentSection />
     </div>
   );
 }
 
-export default Comments;
+export default CommentsPage;

@@ -1,12 +1,12 @@
-import Header from "./components/Header";
-import Comments from "./components/Comments";
+import AppHeader from "./components/AppHeader";
+import CommentsPage from "./components/CommentsPage";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Comments />
+      <AppHeader />
+      <CommentsPage />
     </div>
   );
 }
