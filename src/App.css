@@ -163,10 +163,26 @@ a.active {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  font-weight: bold;
 }
 .page-number {
-  padding: 5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  position: relative;
 }
 .pagination-ellipses-spacing {
-  padding: 5px 14px 0px 14px;
+  padding: 0px 14px 0px 14px;
+}
+
+.pagination-circle {
+  border-radius: 50%;
+  background-color: #17b5f6;
+  color: white;
+}
+
+.page-number-content{
+  position: absolute;
+  top: 2px;
+  padding-left: 8px;
 }
