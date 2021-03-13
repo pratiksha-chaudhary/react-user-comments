@@ -23,25 +23,44 @@ function CommentSection() {
   for (let i = 0; i < 12 && comments.length > 0; i++) {
     currentRowMemberCount++;
     let isNextCommentBoxSmall;
-    if ((isSmallCommentBox && currentRowMemberCount === 4)
-      || (!isSmallCommentBox && currentRowMemberCount === 2)) {
+    if (
+      (isSmallCommentBox && currentRowMemberCount === 4) ||
+      (!isSmallCommentBox && currentRowMemberCount === 2)
+    ) {
       isNextCommentBoxSmall = !isSmallCommentBox;
       currentRowMemberCount = 0;
     }
-    const commentElement = <UserComment key={i} id={(currentPageIndex * 12) + i} comment={comments[(currentPageIndex * 12) + i]} isSmallCommentBox={isSmallCommentBox} />;
-    isSmallCommentBox = currentRowMemberCount === 0 ? isNextCommentBoxSmall : isSmallCommentBox;
+    const commentElement = (
+      <UserComment
+        key={i}
+        id={currentPageIndex * 12 + i}
+        comment={comments[currentPageIndex * 12 + i]}
+        isSmallCommentBox={isSmallCommentBox}
+      />
+    );
+    isSmallCommentBox =
+      currentRowMemberCount === 0 ? isNextCommentBoxSmall : isSmallCommentBox;
     commentElementsList.push(commentElement);
   }
-  return (<>
-    <div className="user-comment-list">{commentElementsList}</div>
-    <div className="pagination">
-      <span className="page-number">1</span>
-      <span className="page-number" onClick={() => setCurrentPageIndex(1)}>2</span>
-      <span className="page-number" onClick={() => setCurrentPageIndex(2)}>3</span>
-      <span className="page-number" onClick={() => setCurrentPageIndex(3)}>4</span>
-      <span className="page-number" onClick={() => setCurrentPageIndex(4)}>5</span>
-    </div>
-  </>
+  return (
+    <>
+      <div className="user-comment-list">{commentElementsList}</div>
+      <div className="pagination">
+        <div className="page-number">1</div>
+        <div className="page-number" onClick={() => setCurrentPageIndex(1)}>
+          2
+        </div>
+        <div className="page-number" onClick={() => setCurrentPageIndex(2)}>
+          3
+        </div>
+        <div className="page-number" onClick={() => setCurrentPageIndex(3)}>
+          4
+        </div>
+        <div className="page-number" onClick={() => setCurrentPageIndex(4)}>
+          5
+        </div>
+      </div>
+    </>
   );
 }
 
