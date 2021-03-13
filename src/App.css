@@ -167,3 +167,6 @@ a.active {
 .page-number {
   padding: 5px;
 }
+.pagination-ellipses-spacing {
+  padding: 5px 14px 0px 14px;
+}

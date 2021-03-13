@@ -44,22 +44,27 @@ function CommentSection() {
   }
   return (
     <>
+      {isWaitingForResponse && <div>Loading............</div>}
       <div className="user-comment-list">{commentElementsList}</div>
-      <div className="pagination">
-        <div className="page-number">1</div>
-        <div className="page-number" onClick={() => setCurrentPageIndex(1)}>
-          2
+      {!isWaitingForResponse && (
+        <div className="pagination">
+          <div className="page-number">&lt;</div>
+          <div className="page-number" onClick={() => setCurrentPageIndex(0)}>
+            1
+          </div>
+          <div className="page-number" onClick={() => setCurrentPageIndex(1)}>
+            2
+          </div>
+          <div className="page-number" onClick={() => setCurrentPageIndex(2)}>
+            3
+          </div>
+          <div className="page-number pagination-ellipses-spacing">...</div>
+          <div className="page-number" onClick={() => setCurrentPageIndex(9)}>
+            10
+          </div>
+          <div className="page-number">&gt;</div>
         </div>
-        <div className="page-number" onClick={() => setCurrentPageIndex(2)}>
-          3
-        </div>
-        <div className="page-number" onClick={() => setCurrentPageIndex(3)}>
-          4
-        </div>
-        <div className="page-number" onClick={() => setCurrentPageIndex(4)}>
-          5
-        </div>
-      </div>
+      )}
     </>
   );
 }
