@@ -1,5 +1,4 @@
-import React from "react";
-import CommentSection from "./CommentSection";
+import CommentSection from "../components/CommentSection";
 
 function CommentsPage() {
   return (

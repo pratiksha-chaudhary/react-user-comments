@@ -1,16 +1,19 @@
 .App-header {
-  background-color: #282c34;
-  font-size: 12px;
-  color: white;
-  font-weight: 600;
-}
-
-.flex-container {
+  font-size: 14px;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #000000;
+}
+
+.header-item-logo a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 55px;
+  text-decoration: none;
 }
 
 .header-item {
@@ -19,22 +22,13 @@
   flex-direction: row;
 }
 
-.header-item-logo {
-  float: left;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
 .header-item a {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
 }
+
 a.active {
   background-color: white;
   color: black;
@@ -42,12 +36,22 @@ a.active {
   border-top: 1px solid;
 }
 
+.header-item .button-element {
+  padding: 5px 20px;
+  margin: 10px 16px;
+  border: 1px solid;
+  border-radius: 8%;
+}
+
+.header-non-button-item{
+  padding: 16px 10px;
+}
 .username {
   background-color: white;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
-  margin: 5px;
+  margin: 8px 25px 8px 8px;
 }
 
 .username-circle span {
@@ -56,7 +60,7 @@ a.active {
   padding: 50%;
   margin: -3em -50% -3em;
   position: relative;
-  top: 1.5em;
+  top: 1.3em;
   border: 1em solid transparent;
 }
 
@@ -77,8 +81,8 @@ a.active {
   justify-content: space-between;
   font-size: 12px;
   font-weight: bold;
-  margin-top: 7vh;
-  margin-bottom: 5vh;
+  margin-top: 5vh;
+  margin-bottom: 3vh;
 }
 
 .create-comment {
@@ -103,11 +107,21 @@ a.active {
 .user-comment {
   display: block;
   width: 23.6%;
+  margin: 3px auto;
+  border-radius: 5%;
+  border: 2px solid rgb(244, 240, 247);
+  box-shadow: 3px 3px rgb(212, 211, 211);
+}
+
+.user-comment.large-comment-box {
+  display: block;
+  width: 48%;
   margin: 5px auto;
   box-shadow: 3px 3px rgb(212, 211, 211);
 }
+
 .user-comment-header {
-  background-color: rgb(244, 240, 247);
+  background-color: rgb(244 229 255);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -124,6 +138,14 @@ a.active {
   padding: 8px 6px 8px 8px;
 }
 
+.large-comment-box .user-comment-name {
+  width: 20%;
+}
+
+.large-comment-box .user-comment-email {
+  width: 20%;
+}
+
 .user-comment-email.small-font {
   font-size: 12px;
 }
@@ -133,4 +155,10 @@ a.active {
   overflow: hidden;
   background-color: rgb(240, 250, 250);
   padding: 8px 6px 8px 8px;
+}
+.pagination {
+  padding-left: 50px;
+}
+.page-number {
+  padding: 5px;
 }
