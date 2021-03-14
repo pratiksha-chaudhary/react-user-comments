@@ -27,7 +27,12 @@ In the project directory, you can run:
 - Mobile/tablet view
 - Creating/updating/deleting user comments
 - Prettier and ESLint integration
-- 
+- Adding unit test
+- Adding loader image when comments are being pulled
+- Auth on admin page
 
 ## Known issues
-- 
+Check [issues section](https://github.com/pratiksha-chaudhary/react-user-comments/issues) for known issues
+
+## Good to have
+- Use grid layout for nav bar to further simplify CSS
