@@ -106,7 +106,7 @@ a.active {
 
 .user-comment {
   background-color: rgb(200 212 239 / 67%);
-  border-radius: 7%;
+  border-radius: 10px;
   box-shadow: 3px 3px 2px 0px rgb(212 211 211);
 }
 
@@ -150,6 +150,7 @@ a.active {
   background-color: rgb(240, 250, 250);
   padding: 8px 6px 8px 8px;
   font-size: 12px;
+  border-radius: 0px 0px 10px 10px;
 }
 .pagination {
   padding: 30px 0px;
