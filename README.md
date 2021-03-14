@@ -32,7 +32,7 @@ In the project directory, you can run:
 - Auth on admin page
 
 ## Known issues
-Check [issues section](https://github.com/pratiksha-chaudhary/react-user-comments/issues) for known issues
+Check [issues section](https://github.com/pratiksha-chaudhary/react-user-comments/issues?q=is%3Aissue) for known issues
 
 ## Good to have
 - Use grid layout for nav bar to further simplify CSS
