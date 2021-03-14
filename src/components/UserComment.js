@@ -1,11 +1,8 @@
 import React from "react";
 
-function UserComment({ comment, isSmallCommentBox, id }) {
-  const commentClassName = `user-comment ${
-    isSmallCommentBox ? "" : "large-comment-box"
-  }`;
+function UserComment({ comment }) {
   return (
-    <div className={commentClassName}>
+    <div className="user-comment">
       <div className="user-comment-header">
         <div className="user-comment-name">
           <b>{comment.name}</b>

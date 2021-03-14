@@ -5,7 +5,7 @@ import Pagination from "./Pagination";
 function CommentSection() {
   const [isWaitingForResponse, setIsWaitingForResponse] = useState(false);
   const [comments, setComments] = useState([]);
-  const [currentPageIndex, setCurrentPageIndex] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     setIsWaitingForResponse(true);
@@ -19,28 +19,10 @@ function CommentSection() {
   }, []);
 
   const commentElementsList = [];
-  let isSmallCommentBox = true;
-  let currentRowMemberCount = 0;
   for (let i = 0; i < 12 && comments.length > 0; i++) {
-    currentRowMemberCount++;
-    let isNextCommentBoxSmall;
-    if (
-      (isSmallCommentBox && currentRowMemberCount === 4) ||
-      (!isSmallCommentBox && currentRowMemberCount === 2)
-    ) {
-      isNextCommentBoxSmall = !isSmallCommentBox;
-      currentRowMemberCount = 0;
-    }
     const commentElement = (
-      <UserComment
-        key={i}
-        id={currentPageIndex * 12 + i}
-        comment={comments[currentPageIndex * 12 + i]}
-        isSmallCommentBox={isSmallCommentBox}
-      />
+      <UserComment key={i} comment={comments[currentPage * 12 + i]} />
     );
-    isSmallCommentBox =
-      currentRowMemberCount === 0 ? isNextCommentBoxSmall : isSmallCommentBox;
     commentElementsList.push(commentElement);
   }
 
@@ -48,7 +30,9 @@ function CommentSection() {
     <>
       {isWaitingForResponse && <div>Loading............</div>}
       <div className="user-comment-list">{commentElementsList}</div>
-      {!isWaitingForResponse && <Pagination currentPageIndex={currentPageIndex} setCurrentPageIndex={setCurrentPageIndex}/>}
+      {!isWaitingForResponse && (
+        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      )}
     </>
   );
 }
