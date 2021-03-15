@@ -12,8 +12,18 @@ function Pagination({ currentPage, setCurrentPage, commentsCount }) {
 
   // This effect updates start index whenever current page is updated
   useEffect(() => {
-    if (currentPage !== totalPageCount - 1) {
-      setStartIndex(currentPage);
+    if (currentPage - startIndex === 3) {
+      setStartIndex((i) => i + 1);
+    }
+    if (currentPage - startIndex > 9) {
+      setStartIndex((i) => i + 1);
+    }
+    if (endIndex - startIndex < 9 && currentPage - startIndex > 3) {
+      setStartIndex((i) => i + 1);
+    }
+
+    if (currentPage - startIndex < 0) {
+      setStartIndex((i) => i - 1);
     }
   }, [currentPage]);
 
@@ -23,12 +33,29 @@ function Pagination({ currentPage, setCurrentPage, commentsCount }) {
     }
   };
 
+  const movePageIndexes = (moveType) => {
+    if (moveType === -1) {
+      if (currentPage > 0) {
+        setCurrentPage((i) => i - 1);
+      }
+
+      if (endIndex - startIndex <= 9) {
+        setStartIndex((i) => i - 1);
+      }
+    }
+    if (moveType === 1) {
+      if (currentPage < totalPageCount - 1) {
+        setCurrentPage((i) => i + 1);
+      }
+    }
+  };
+
   return (
     <div className="pagination">
       <div className="page-number">
         <div
           className="page-number-content"
-          onClick={() => setPageIndex(currentPage - 1)}
+          onClick={() => movePageIndexes(-1)}
         >
           &lt;
         </div>
@@ -37,7 +64,7 @@ function Pagination({ currentPage, setCurrentPage, commentsCount }) {
         className={`page-number ${
           currentPage - startIndex === 0 ? "active" : ""
         }`}
-        onClick={() => setPageIndex(currentPage)}
+        onClick={() => setPageIndex(startIndex)}
       >
         <div className="page-number-content">{startIndex + 1}</div>
       </div>
@@ -45,7 +72,7 @@ function Pagination({ currentPage, setCurrentPage, commentsCount }) {
         className={`page-number ${
           currentPage - startIndex === 1 ? "active" : ""
         }`}
-        onClick={() => setPageIndex(currentPage + 1)}
+        onClick={() => setPageIndex(startIndex + 1)}
       >
         <div className="page-number-content">{startIndex + 2}</div>
       </div>
@@ -53,7 +80,7 @@ function Pagination({ currentPage, setCurrentPage, commentsCount }) {
         className={`page-number ${
           currentPage - startIndex === 2 ? "active" : ""
         }`}
-        onClick={() => setPageIndex(currentPage + 2)}
+        onClick={() => setPageIndex(startIndex + 2)}
       >
         <div className="page-number-content">{startIndex + 3}</div>
       </div>
@@ -72,16 +99,11 @@ function Pagination({ currentPage, setCurrentPage, commentsCount }) {
         <div className="page-number-content">{endIndex + 1}</div>
       </div>
 
-      {totalPageCount - endIndex !== 1 && (
-        <div className="page-number">
-          <div
-            className="page-number-content"
-            onClick={() => setPageIndex(currentPage + 1)}
-          >
-            &gt;
-          </div>
+      <div className="page-number">
+        <div className="page-number-content" onClick={() => movePageIndexes(1)}>
+          &gt;
         </div>
-      )}
+      </div>
     </div>
   );
 }
