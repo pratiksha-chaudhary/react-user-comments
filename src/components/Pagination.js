@@ -1,33 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-function Pagination({ currentPage, setCurrentPage }) {
-  const [startPageIndex, setStartPageIndex] = useState(0);
+function Pagination({ currentPage, setCurrentPage, commentsCount }) {
+  const [startIndex, setStartIndex] = useState(0);
+  const totalPageCount = Math.ceil(commentsCount / 12);
+  let endIndex;
+  if (startIndex + 9 < totalPageCount) {
+    endIndex = startIndex + 9;
+  } else {
+    endIndex = totalPageCount - 1;
+  }
+
+  // This effect updates start index whenever current page is updated
+  useEffect(() => {
+    if (currentPage !== totalPageCount - 1) {
+      setStartIndex(currentPage);
+    }
+  }, [currentPage]);
 
   const setPageIndex = (expectedPageIndex) => {
-    setCurrentPage(expectedPageIndex);
-
-    // To handle single increments
-    if (expectedPageIndex - startPageIndex === 2) {
-      setStartPageIndex((i) => i + 1);
-    }
-
-    // To handle scenario when user selects last page on pagination
-    if (expectedPageIndex - startPageIndex > 2) {
-      setStartPageIndex(expectedPageIndex);
-    }
-  };
-
-  const updateStartPageIndex = (increment) => {
-    if (increment === -1) {
-      // This means this is first page of comments and we can't go further back
-      if (currentPage > 0) {
-        setCurrentPage((i) => i - 1);
-      }
-
-      // Update start pagination index if current page index has reached the start
-      if (currentPage > 0 && currentPage <= startPageIndex) {
-        setStartPageIndex((i) => i - 1);
-      }
+    if (expectedPageIndex >= 0 && expectedPageIndex < totalPageCount) {
+      setCurrentPage(expectedPageIndex);
     }
   };
 
@@ -36,34 +28,34 @@ function Pagination({ currentPage, setCurrentPage }) {
       <div className="page-number">
         <div
           className="page-number-content"
-          onClick={() => updateStartPageIndex(-1)}
+          onClick={() => setPageIndex(currentPage - 1)}
         >
           &lt;
         </div>
       </div>
       <div
         className={`page-number ${
-          currentPage - startPageIndex === 0 ? "active" : ""
+          currentPage - startIndex === 0 ? "active" : ""
         }`}
         onClick={() => setPageIndex(currentPage)}
       >
-        <div className="page-number-content">{startPageIndex + 1}</div>
+        <div className="page-number-content">{startIndex + 1}</div>
       </div>
       <div
         className={`page-number ${
-          currentPage - startPageIndex === 1 ? "active" : ""
+          currentPage - startIndex === 1 ? "active" : ""
         }`}
         onClick={() => setPageIndex(currentPage + 1)}
       >
-        <div className="page-number-content">{startPageIndex + 2}</div>
+        <div className="page-number-content">{startIndex + 2}</div>
       </div>
       <div
         className={`page-number ${
-          currentPage - startPageIndex === 2 ? "active" : ""
+          currentPage - startIndex === 2 ? "active" : ""
         }`}
         onClick={() => setPageIndex(currentPage + 2)}
       >
-        <div className="page-number-content">{startPageIndex + 3}</div>
+        <div className="page-number-content">{startIndex + 3}</div>
       </div>
       <div
         className="page-number pagination-ellipses-spacing"
@@ -72,19 +64,24 @@ function Pagination({ currentPage, setCurrentPage }) {
         <div className="page-number-content">...</div>
       </div>
       <div
-        className="page-number"
-        onClick={() => setPageIndex(currentPage + 9)}
+        className={`page-number ${
+          currentPage - endIndex === 0 ? "active" : ""
+        }`}
+        onClick={() => setPageIndex(endIndex)}
       >
-        <div className="page-number-content">{startPageIndex + 10}</div>
+        <div className="page-number-content">{endIndex + 1}</div>
       </div>
-      <div className="page-number">
-        <div
-          className="page-number-content"
-          onClick={() => setPageIndex(currentPage + 1)}
-        >
-          &gt;
+
+      {totalPageCount - endIndex !== 1 && (
+        <div className="page-number">
+          <div
+            className="page-number-content"
+            onClick={() => setPageIndex(currentPage + 1)}
+          >
+            &gt;
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
