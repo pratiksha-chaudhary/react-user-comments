@@ -12,14 +12,16 @@ function Pagination({ currentPage, setCurrentPage, commentsCount }) {
 
   // This effect updates start index whenever current page is updated
   useEffect(() => {
-    if (currentPage - startIndex === 3) {
-      setStartIndex((i) => i + 1);
-    }
-    if (currentPage - startIndex > 9) {
-      setStartIndex((i) => i + 1);
-    }
-    if (endIndex - startIndex < 9 && currentPage - startIndex > 3) {
-      setStartIndex((i) => i + 1);
+    if (startIndex < 38) {
+      if (currentPage - startIndex === 3) {
+        setStartIndex((i) => i + 1);
+      }
+      if (currentPage - startIndex > 9) {
+        setStartIndex((i) => i + 1);
+      }
+      if (endIndex - startIndex < 9 && currentPage - startIndex > 3) {
+        setStartIndex((i) => i + 1);
+      }
     }
 
     if (currentPage - startIndex < 0) {
@@ -39,7 +41,7 @@ function Pagination({ currentPage, setCurrentPage, commentsCount }) {
         setCurrentPage((i) => i - 1);
       }
 
-      if (endIndex - startIndex <= 9) {
+      if (endIndex - startIndex <= 9 && startIndex > 0) {
         setStartIndex((i) => i - 1);
       }
     }

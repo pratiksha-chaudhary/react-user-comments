@@ -166,7 +166,7 @@ a.active {
   position: relative;
 }
 .pagination-ellipses-spacing {
-  padding: 0px 14px 0px 14px;
+  padding: 0px 28px 0px 14px;
 }
 
 .pagination .active {
@@ -178,5 +178,5 @@ a.active {
 .page-number-content {
   position: absolute;
   top: 2px;
-  padding-left: 8px;
+  width: 100%;
 }
