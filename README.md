@@ -26,7 +26,6 @@ In the project directory, you can run:
 - User profile page
 - Mobile/tablet view
 - Creating/updating/deleting user comments
-- Prettier and ESLint integration
 - Adding unit test
 - Adding loader image when comments are being pulled
 - Auth on admin page
