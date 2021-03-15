@@ -20,10 +20,13 @@ function CommentSection() {
 
   const commentElementsList = [];
   for (let i = 0; i < 12 && comments.length > 0; i++) {
-    const commentElement = (
-      <UserComment key={i} comment={comments[currentPage * 12 + i]} />
-    );
-    commentElementsList.push(commentElement);
+    const currentCommentIndex = currentPage * 12 + i;
+    if (comments[currentCommentIndex] !== undefined) {
+      const commentElement = (
+        <UserComment key={i} comment={comments[currentCommentIndex]} />
+      );
+      commentElementsList.push(commentElement);
+    }
   }
 
   return (
@@ -31,7 +34,11 @@ function CommentSection() {
       {isWaitingForResponse && <div>Loading............</div>}
       <div className="user-comment-list">{commentElementsList}</div>
       {!isWaitingForResponse && (
-        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          commentsCount={comments.length}
+        />
       )}
     </>
   );
