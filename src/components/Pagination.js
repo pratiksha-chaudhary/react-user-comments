@@ -47,7 +47,7 @@ function Pagination({ currentPage, setCurrentPage, commentsCount }) {
     }
   };
 
-  const movePageIndexes = (moveType) => {
+  const movePageIndex = (moveType) => {
     if (moveType === -1) {
       // To avoid user from going into negative page number
       if (currentPage > 0) {
@@ -65,10 +65,7 @@ function Pagination({ currentPage, setCurrentPage, commentsCount }) {
   return (
     <div className="pagination">
       <div className="page-number">
-        <div
-          className="page-number-content"
-          onClick={() => movePageIndexes(-1)}
-        >
+        <div className="page-number-content" onClick={() => movePageIndex(-1)}>
           &lt;
         </div>
       </div>
@@ -96,10 +93,7 @@ function Pagination({ currentPage, setCurrentPage, commentsCount }) {
       >
         <div className="page-number-content">{startIndex + 3}</div>
       </div>
-      <div
-        className="page-number pagination-ellipses-spacing"
-        onClick={() => {}}
-      >
+      <div className="page-number pagination-ellipses-spacing">
         <div className="page-number-content">...</div>
       </div>
       <div
@@ -112,7 +106,7 @@ function Pagination({ currentPage, setCurrentPage, commentsCount }) {
       </div>
 
       <div className="page-number">
-        <div className="page-number-content" onClick={() => movePageIndexes(1)}>
+        <div className="page-number-content" onClick={() => movePageIndex(1)}>
           &gt;
         </div>
       </div>
