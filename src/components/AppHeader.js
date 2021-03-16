@@ -4,7 +4,7 @@ function Header() {
   return (
     <div className="App-header">
       <div className="header-item-logo">
-        <Link to={`/`} activeclassname="active">LiveEO</Link>
+        <Link to={`/`} >LiveEO</Link>
       </div>
       <div className="header-item">
         <NavLink to={`/map`} activeclassname="active"><div className="header-non-button-item">Map</div></NavLink>
@@ -15,7 +15,7 @@ function Header() {
           <div >Admin</div>
         </NavLink>
         <div className="username username-circle">
-          <span href="#map">L</span>
+          <span>L</span>
         </div>
       </div>
     </div>
